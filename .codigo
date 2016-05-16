@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <stdio.h>//Incluimos a biblioteca padrao de entrada e saida de dados
+#include <stdlib.h>//Incluimos as bibliotecas padrao do c
 
 struct Node{
 	int num;
@@ -8,6 +8,7 @@ struct Node{
 typedef struct Node node;
 
 int tam;
+
 
 int menu(void);
 void opcao(node *FILA, int op);
@@ -19,7 +20,7 @@ node *retira(node *FILA);
 void exibe(node *FILA);
 void libera(node *FILA);
 
-
+//Função principal do sistema
 int main(void)
 {
 	node *FILA = (node *) malloc(sizeof(node));
@@ -40,7 +41,7 @@ int main(void)
 	}
 }
 
-
+//Função que printa as opções do menu na tela
 int menu(void)
 {
 	int opt;
@@ -50,12 +51,13 @@ int menu(void)
 	printf("1. Zerar fila\n");
 	printf("2. Exibir fila\n");
 	printf("3. Adicionar Elemento na Fila\n");
-	printf("4. Retirar Elemento da Fila\n");
+	printf("4. Retirar Elemento da Fila\n\n");
 	printf("Opcao: "); scanf("%d", &opt);
 
 	return opt;
 }
 
+//Função que identifica a opção escolhida
 void opcao(node *FILA, int op)
 {
 	node *tmp;
@@ -90,12 +92,14 @@ void opcao(node *FILA, int op)
 	}
 }
 
+//Função que inicia o uso do algoritmo de dados fila
 void inicia(node *FILA)
 {
 	FILA->prox = NULL;
 	tam=0;
 }
 
+//Função que esvazia a fila
 int vazia(node *FILA)
 {
 	if(FILA->prox == NULL)
@@ -104,6 +108,7 @@ int vazia(node *FILA)
 		return 0;
 }
 
+//Função que aloca um espaço na memória para o valor a ser inserido
 node *aloca()
 {
 	node *novo=(node *) malloc(sizeof(node));
@@ -116,6 +121,7 @@ node *aloca()
 	}
 }
 
+//Função que insere u valor na fila
 void insere(node *FILA)
 {
 	node *novo=aloca();
@@ -134,7 +140,7 @@ void insere(node *FILA)
 	tam++;
 }
 
-
+//Função que retira um valor da fila
 node *retira(node *FILA)
 {
 	if(FILA->prox == NULL){
@@ -149,7 +155,7 @@ node *retira(node *FILA)
 
 }
 
-
+//Função que exibe os valores da fila
 void exibe(node *FILA)
 {
 	if(vazia(FILA)){
@@ -176,6 +182,8 @@ void exibe(node *FILA)
 	printf("\n\n");
 }
 
+
+//Função que elimina o primeiro elemento da fila
 void libera(node *FILA)
 {
 	if(!vazia(FILA)){
