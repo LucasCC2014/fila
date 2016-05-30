@@ -1,3 +1,4 @@
+
 #include <stdio.h>//Incluimos a biblioteca padrao de entrada e saida de dados
 #include <stdlib.h>//Incluimos as bibliotecas padrao do c
 
